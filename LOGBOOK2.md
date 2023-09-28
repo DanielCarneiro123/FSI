@@ -1,4 +1,3 @@
-
 # Trabalho realizado nas Semanas #2 e #3
 
 ## Identificação
@@ -28,10 +27,10 @@
 
 ### Fontes consultadas
 
-- (1) - NVD - cve-2020-1472
-- (2) - The story of ZeroLogon | Malwarebytes Labs 
-- (3) - CVE-2020-1472 
-- (4) - Zerologon CVE-2020-1472: Technical overview and walkthrough | Infosec 
+- (1) - https://nvd.nist.gov/vuln/detail/cve-2020-1472
+- (2) - https://www.malwarebytes.com/blog/news/2021/01/the-story-of-zerologon
+- (3) - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2020-1472
+- (4) - https://resources.infosecinstitute.com/topics/vulnerabilities/zerologon-cve-2020-1472-technical-overview-and-walkthrough/
 - (5) - https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2020-1472
 - (6) - https://www.secpod.com/blog/attention-your-server-machines-in-domains-are-no-more-safe-cve-2020-1472-zerologon
 - (7) - https://support.microsoft.com/pt-br/topic/vulnerabilidade-de-eleva%C3%A7%C3%A3o-de-privil%C3%A9gio-de-integridade-de-c%C3%B3digo-do-hipervisor-13-de-junho-de-2017-e6562dab-0302-06c9-9c34-c99c638a610c
