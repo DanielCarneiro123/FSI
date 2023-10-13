@@ -7,7 +7,7 @@
 
  ### Task 2
 > Não existe nenhum acréscimo entre o ficheiro que guarda as variáveis de ambiente dos processos pai e filho: <br>
-
+>![](images/FSI_task2.png)
 
 ### Task 3
 > - Inicialmente, ao executar o código com NULL no terceiro argumento a NULL (execve("/usr/bin/env", argv, NULL)), nenhuma variável de ambiente é mostrada no terminal visto que o pointer é nulo. <br>
@@ -17,6 +17,7 @@
 ### Task 4
 > - A principal diferença é que execve() executa um programa diretamente, enquanto system() executa um comando por meio de um shell. Além disso, system() automaticamente passa as variáveis de ambiente do caller para o novo programa ou comando, o que não é o caso com execve(). <br>
 > - Dessa forma ao correr o programa são listadas todas várias variáveis de ambiente que depois podem a ser comprometedoras para a segurança. <br>
+>![](images/FSI_tas4.png)
 
 ### Task 5
 > - O mecanismo Set-UID é projetado para conceder privilégios elevados a um programa, mas com restrições rigorosas para evitar abusos e vulnerabilidades de segurança. Para isso, ele herda os privilégios do proprietário original, mas não herda as variáveis de ambiente do executante. Geralmente inicia apenas com um conjunto mínimo de variáveis de ambiente para evitar problemas de segurança. Daí é que se explica que algumas das variáveis de ambiente não constem na lista das variáveis a quando executado como 'root', como por exemplo a LD_LIBRARY_PATH que pode ser comprometedora a nível de segurança pois define um caminho onde o programa vai procurar as bibliotecas dinâmicas partilhadas. <br>
