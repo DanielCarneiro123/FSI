@@ -30,3 +30,5 @@
 > - Nos passos anteriores, foi demonstrado que programas Set-UID geralmente não herdam automaticamente as variáveis de ambiente do processo pai. O programa Set-UID geralmente é executado com um ambiente controlado e seguro.
 No entanto, quando um programa Set-UID chama a função system(), ele efetivamente inicia uma shell, que pode ser afetado pelas variáveis de ambiente definidas pelo utilizador.
 Para explicar isso foi criado um programa com permissões elevadas (Set-UID), que faz uma chamada 'system("ls")'. Depois outro programa, este malicioso, com o nome "ls" no seguinte diretório: "/home/seed/Desktop/dif_Ls". E ao mudar a variável de ambiente "PATH" para o diretório onde contém o programa malicioso "$ export PATH=/home/seed/Desktop/dif_Ls" vem-se a concluir que o comando "ls" executado foi apenas o do programa malicioso e não o do sistema operativo.
+
+>![](images/task6_fsi.png)
