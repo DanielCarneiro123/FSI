@@ -22,6 +22,10 @@
 ### Task 5
 > - O mecanismo Set-UID é projetado para conceder privilégios elevados a um programa, mas com restrições rigorosas para evitar abusos e vulnerabilidades de segurança. Para isso, ele herda os privilégios do proprietário original, mas não herda as variáveis de ambiente do executante. Geralmente inicia apenas com um conjunto mínimo de variáveis de ambiente para evitar problemas de segurança. Daí é que se explica que algumas das variáveis de ambiente não constem na lista das variáveis a quando executado como 'root', como por exemplo a LD_LIBRARY_PATH que pode ser comprometedora a nível de segurança pois define um caminho onde o programa vai procurar as bibliotecas dinâmicas partilhadas. <br>
 
+>![](images/task5_fsi2.png)
+
+>![](images/task5_fsi.png)
+
 ### Task 6
 > - Nos passos anteriores, foi demonstrado que programas Set-UID geralmente não herdam automaticamente as variáveis de ambiente do processo pai. O programa Set-UID geralmente é executado com um ambiente controlado e seguro.
 No entanto, quando um programa Set-UID chama a função system(), ele efetivamente inicia uma shell, que pode ser afetado pelas variáveis de ambiente definidas pelo utilizador.
