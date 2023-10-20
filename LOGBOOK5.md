@@ -27,6 +27,7 @@ sudo ln -sf /bin/zsh /bin/sh
 > Após a compilação, é necessário configurar o programa como um programa Set-UID de propriedade do root na seguinte ordem:<br>
 ``` $ sudo chown root stack```
 ``` $ sudo chmod 4755 stack ```
+<br>
 >![](images/FSI_task2_log5.png)
 
 ### Task 3: Launching Attack on 32-bit Program
@@ -35,12 +36,16 @@ sudo ln -sf /bin/zsh /bin/sh
 > Introduzimos o shellcode no nosso badfile, introduzimos os nop's, corrigimos o start para diferença entre 517 (tamanho máximo do array) e o tamanho do shellcode, para que o shellcode seja a ultima coisa a ser colocada. <br>
 
 > Atualizamos o endereço de retorno (ret) de forma a apontar para o shellcode que vamos executar, fizemos o que lá estava antes mas acrescentamos 200 para que apontasse um bocadinho antes do valor exato (pois o valor exato pode não ser 100% exato)
-
+<br>
 >![](images/FSI_task3_log5.png)
+<br>
 >![](images/FSI_task33_log5.png)
+<br>
 >>![](images/FSI_task333_log5.png)
 
 ### Task 4: Launching Attack without Knowing Buffer Size
 > Aproveitamos o que tínhamos feito na task3 e apenas mudamos a quantidade de vezes que escrevemos, em vez de ser num só sitio, passa a ser numa range de 100 a 200 bytes, para que caso falhamos o endereço exato, sabemos que está escrito nessa range.
+<br>
 > ![](images/FSI_task4_log5.png)
+<br>
 >![](images/FSI_task44_log5.png)
