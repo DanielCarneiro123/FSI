@@ -25,9 +25,11 @@ sudo ln -sf /bin/zsh /bin/sh
 > Utilizamos as opções -fno-stack-protector e "-z execstack" durante a compilação para desativar essas proteções.<br>
 > $ gcc -DBUF_SIZE=100 -m32 -o stack -z execstack -fno-stack-protector stack.c <br>
 > Após a compilação, é necessário configurar o programa como um programa Set-UID de propriedade do root na seguinte ordem:<br>
+
 ``` $ sudo chown root stack```
 
 ``` $ sudo chmod 4755 stack ```
+
 <br>
 
 >![](images/FSI_task2_log5.png)
