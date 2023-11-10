@@ -50,8 +50,6 @@ Portanto, voltando à página inicial e colocando este novo form na 'justificaç
 ```
 e com isso damos o 'Submit'.
 
-(Depois dei reload outra vez e o id para buscar a flag atualizou para d017767734bfe2c6e391e8d5606caecafebd4c85 mas os prints foram tirados com o anterior)
-
 Somos passados para o url da ação do form, no entanto vai nos ser avisado que não temos permissões para tal.
 
 ![ctf6imagem4](images/ctf6imagem4.png)
