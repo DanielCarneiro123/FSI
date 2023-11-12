@@ -17,3 +17,6 @@ Conseguimos fazer isso com o input "admin'--" onde vamos então colocar o userna
 SELECT username FROM user WHERE username = 'admin' -- AND password = $password
 ```
 E esta será a query que efetivamente será executada com o login. 
+
+![](images/CTF8.png)
+
