@@ -19,7 +19,7 @@ p &flag
 
 Ficamos então com o endereço da flag e depois iremos usar em formato string como : "\x60\xC0\x04\x08"
 
-Fomos então ao código e fizemos algumas alterações:
+Fomos então ao código fornecido no ficheiro exploit_example.py e fizemos algumas alterações:
 
 
 ```
