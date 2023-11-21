@@ -3,7 +3,7 @@
 ## Setup
 
 Para darmos setup ao ambiente do Lab, teremos de desativar o address space randomization usado na stack e na heap.
-Este passo serve para savermos exatamente a ordem e a localização dos endereços dos programas.
+Este passo serve para sabermos exatamente a ordem e a localização dos endereços dos programas.
 
 ```bash
 $ sudo sysctl -w kernel.randomize_va_space=0
