@@ -51,7 +51,7 @@ gdb ./program
 p &key
 ```
 
-Está no endereço: "0x0804B324" que é "\x24\xB3\x04\x08" em hexadecimal. Como queremos escrever 48879 neste endereço tivemos de modificar a string dada como input: após o endereço pretendido (4 bytes) é necessário escrever exatamente 48879 - 8 = 48871 bytes antes de '%n'. Temos de ter em conta que o buffer de entrada só tem no máximo 32 bytes disponíveis, e por isso chegamos à expressão de leitura do printf %.Nx, com N = 48871.
+Está no endereço: "0x0804B324" que é "\x24\xB3\x04\x08" em hexadecimal. Como queremos escrever 48879 neste endereço tivemos de modificar a string dada como input: após o endereço pretendido (4 bytes) é necessário escrever exatamente 48879 - 4 = 48875 menos ainda o “AAAA” que dá os 48871 bytes antes de '%n'. Temos de ter em conta que o buffer de entrada só tem no máximo 32 bytes disponíveis, e por isso chegamos à expressão de leitura do printf %.Nx, com N = 48871.
 
 ```
 p = remote("ctf-fsi.fe.up.pt", 4005)
