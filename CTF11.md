@@ -1,4 +1,4 @@
-# CTF Semana 11 (Weak Encryption)
+# CTF Semana 11 (RSA)
 
 Começamos por descarregar o ficheiro fornecido na plantaforma e analisa-lo.
 
