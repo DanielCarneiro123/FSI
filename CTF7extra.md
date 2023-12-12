@@ -4,7 +4,6 @@
 
 Acaba por ser bastante semelhante ao segundo desafio desta semana 7, apenas o endereço da variável `key` passa a ser `0x804b320`.
 
-<img src="../screenshots/ctf7/d3_key.PNG" alt="key">
 
 ## Exploração da vulnerabilidade
 
@@ -23,8 +22,6 @@ Mas correu mal, devido a `\x20` corresponder a um espaço em código ASCII, o qu
 ### Tentativa 2
 
 Para tentar corrigir isso, fomos tentar escrever no endereço `0x804b31F` (1 byte anterior ao endereço da `key`) o valor de `0xBEEF00`:
-
-<img src="../screenshots/ctf7/try2_1.PNG" alt="try">
 
 
 ```py
