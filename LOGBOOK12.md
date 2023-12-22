@@ -68,19 +68,8 @@ sudo python3 sniffer.py
 
 Ao fazer ping 8.8.8.8 num dos outros containers vemos:
 
-```
-TTL 1 - IP: 10.0.2.2 - Time Exceeded
-TTL 2 - IP: 192.168.1.1 - Time Exceeded
-TTL 3 - IP: 10.19.127.254 - Time Exceeded
-TTL 4 - IP: 10.137.211.241 - Time Exceeded
-TTL 5 - IP: 10.255.48.74 - Time Exceeded
-TTL 6 - IP: 72.14.209.204 - Time Exceeded
-TTL 7 - IP: 142.251.231.133 - Time Exceeded
-TTL 8 - IP: 66.249.95.226 - Time Exceeded
-TTL 9 - IP: 142.251.55.189 - Time Exceeded
-TTL 10 - IP: 74.125.242.161 - Time Exceeded
-TTL 11 - IP: 142.250.46.165 - Time Exceeded Destination reached at TTL 12 - IP: 8.8.8.8
-```
+
+
 
 ### Task 1.1B - Packet Filtering
 
@@ -146,7 +135,7 @@ Começamos por fazer este código:
 from scapy.all import *
 
 destination_ip = '8.8.8.8'
-max_ttl = 30  # Valor arbitrário máximo de ttl
+max_ttl = 20  
 
 for ttl in range(1, max_ttl + 1):
     a = IP()
@@ -156,14 +145,13 @@ for ttl in range(1, max_ttl + 1):
     reply = sr1(a / b, timeout=1, verbose=0)
 
     if reply is None:
-        # Nenhuma resposta recebida
         print(f"No response for TTL {ttl}")
     elif reply.haslayer(ICMP) and reply.getlayer(ICMP).type == 0:
-        # ICMP Echo Reply recebida, printa o source IP e acaba o loop
+        
         print(f"Destination reached at TTL {ttl} - IP: {reply.getlayer(IP).src}")
         break
     elif reply.haslayer(ICMP) and reply.getlayer(ICMP).type == 11:
-        # ICMP Time excedido, continua para o próximo TTL
+        # ICMP Time Type 11 = Time exceeded
         print(f"TTL {ttl} - IP: {reply.getlayer(IP).src} - Time Exceeded")
 ```
 
