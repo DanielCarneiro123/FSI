@@ -43,10 +43,11 @@ python3 mycode.py
     dst = 127.0.0.1
     \options \
 
+```
 
 ### Task 1.1A - Sniffing Packets
 
-Depos criamos um ficheiro sniffer.py com este código:
+Depois criamos um ficheiro sniffer.py na shared folder volumes com este código:
 
 ```py
 from scapy.all import *
@@ -67,13 +68,24 @@ sudo python3 sniffer.py
 
 Ao fazer ping 8.8.8.8 num dos outros containers vemos:
 
-
-![](images/log12_2.png)
+```
+TTL 1 - IP: 10.0.2.2 - Time Exceeded
+TTL 2 - IP: 192.168.1.1 - Time Exceeded
+TTL 3 - IP: 10.19.127.254 - Time Exceeded
+TTL 4 - IP: 10.137.211.241 - Time Exceeded
+TTL 5 - IP: 10.255.48.74 - Time Exceeded
+TTL 6 - IP: 72.14.209.204 - Time Exceeded
+TTL 7 - IP: 142.251.231.133 - Time Exceeded
+TTL 8 - IP: 66.249.95.226 - Time Exceeded
+TTL 9 - IP: 142.251.55.189 - Time Exceeded
+TTL 10 - IP: 74.125.242.161 - Time Exceeded
+TTL 11 - IP: 142.250.46.165 - Time Exceeded Destination reached at TTL 12 - IP: 8.8.8.8
+```
 
 ### Task 1.1B - Packet Filtering
 
 #### TCP Packet Filter
-Para capturarmos qualquer TCP packet que vem de um certo IP e com port de destino 23, temos de alterar o filtro e para isso mudamos o código do sniffer.py para:
+Para capturarmos qualquer TCP packet que vem de um certo IP e com port de destino 23, temos de alterar o filtro e para isso mudamos o código do sniffer.py da shared folder volumes para:
 
 ```py
 from scapy.all import *
@@ -190,7 +202,7 @@ Se corrermos com um IP que não exista na Internet, tipo "1.2.3.4" observamos no
 
 São mandados requests para o IP 1.2.3.4 pelo comando ping e depois esses pedidos, são mandados pedidos para o IP 8.8.8.8, por causa do sniffing and spoofing. Ao mandar requests para um IP que não exista na Internet vamos sempre ter uma resposta, neste caso a resposta era do IP 8.8.8.8
 
-Se corrermos com um IP que não exista em LAN, tipo "10.9.0.99" observamos:
+Se corrermos com um IP que não exista em LAN observamos:
 
 ![](images/log12_8.png)
 
