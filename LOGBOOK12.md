@@ -1,7 +1,8 @@
 # Sniffing and Spoofing
 ## Setup
 
-Começamos por ser necessário descobrir o nome da network interface do container na nossa VM. Então fizemos ifconfig no terminal e procuramos o IP 10.9.0.1:
+
+Começamos por descobrir o nome da network interface do container na nossa VM. Corremos ifconfig no terminal e procuramos o IP 10.9.0.1:
 
 ```
 ifconfig
@@ -27,12 +28,25 @@ chmod a+x mycode.py
 python3 mycode.py
 ```
 
-![](images/log12_1.png)
+```
+###[ IP ]###
+    version = 4
+    ihl = Nonetos = 0x0
+    len = None
+    id = 1
+    flags =
+    frag = 0
+    ttl = 64
+    proto = hopopt
+    chksum = None
+    src = 127.0.0.1
+    dst = 127.0.0.1
+    \options \
 
 
 ### Task 1.1A - Sniffing Packets
 
-Agora, criamos um ficheiro sniffer.py na pasta volumes com este código:
+Depos criamos um ficheiro sniffer.py com este código:
 
 ```py
 from scapy.all import *
@@ -49,7 +63,9 @@ e corremos em modo root:
 sudo python3 sniffer.py
 ```
 
-Se abrirmos um shell num dos outros 2 container e fizermos ping 8.8.8.8, vemos o seguinte:
+
+
+Ao fazer ping 8.8.8.8 num dos outros containers vemos:
 
 
 ![](images/log12_2.png)
