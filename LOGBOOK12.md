@@ -198,8 +198,6 @@ Se corrermos com um IP que não exista em LAN observamos que nada acontece
 
 Por causa de "Destination Host Unreachable" não chegam a ser mandados packets, logo o ficheiro que faz sniff and spoof não tem packets para encontrar. O Wireshark também está vazio porque não chegaram a ser enviados packets.
 
-![](images/log12_9.png)
-
 Se corrermos com um IP que exista na Internet, tipo "8.8.8.8" observamos:
 
 ```
