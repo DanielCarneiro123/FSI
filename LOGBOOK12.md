@@ -31,7 +31,8 @@ python3 mycode.py
 ```
 ###[ IP ]###
     version = 4
-    ihl = Nonetos = 0x0
+    ihl = None
+    tos = 0x0
     len = None
     id = 1
     flags =
@@ -66,7 +67,11 @@ sudo python3 sniffer.py
 
 
 
-Ao fazer ping 8.8.8.8 num dos outros containers vemos:
+Ao fazer ping 8.8.8.8 num dos outros containers vemos que os packets foram sniffed.
+
+Sem estar no modo root os packets não foram sniffed porque esta operação requer privilégios elevados.
+
+
 
 
 
