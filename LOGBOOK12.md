@@ -203,9 +203,9 @@ Se corrermos com um IP que não exista na Internet, tipo "1.2.3.4" observamos no
 
 São mandados requests para o IP 1.2.3.4 pelo comando ping e depois esses pedidos, são mandados pedidos para o IP 8.8.8.8, por causa do sniffing and spoofing. Ao mandar requests para um IP que não exista na Internet vamos sempre ter uma resposta, neste caso a resposta era do IP 8.8.8.8
 
-Se corrermos com um IP que não exista em LAN observamos:
+Se corrermos com um IP que não exista em LAN observamos que nada acontece
 
-![](images/log12_8.png)
+
 
 
 Por causa de "Destination Host Unreachable" não chegam a ser mandados packets, logo o ficheiro que faz sniff and spoof não tem packets para encontrar. O Wireshark também está vazio porque não chegaram a ser enviados packets.
