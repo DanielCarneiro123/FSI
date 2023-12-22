@@ -130,8 +130,9 @@ p=a/b
 send(p)
 ```
 E ao corrermos o código com ```sudo python3 spoofer.py``` obtemos:
-
-![](images/log12_3.png)
+```
+Sent 1 packets.
+```
 
 Que nos diz que o packet foi enviado, então abrindo o Wireshark em modo root e analisando o envio do pacote, conseguimos observar o seguinte:
 
@@ -213,7 +214,14 @@ Por causa de "Destination Host Unreachable" não chegam a ser mandados packets, 
 
 Se corrermos com um IP que exista na Internet, tipo "8.8.8.8" observamos:
 
-![](images/log12_11.png)
+```
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: imp_seq=1 ttl=57 time=25.3 ms
+64 bytes from 8.8.8.8: imp_seq=2 ttl=57 time=24.7 ms
+64 bytes from 8.8.8.8: imp_seq=3 ttl=57 time=26.5 ms
+64 bytes from 8.8.8.8: imp_seq=4 ttl=57 time=26.1 ms
+64 bytes from 8.8.8.8: imp seq=5 ttl=57 time=26.9 m
+```
 
 ![](images/log12_12.png)
 
